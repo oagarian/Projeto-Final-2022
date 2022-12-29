@@ -24,37 +24,10 @@ public class AgendarConsultaDAO {
                 String dia = rs.getString("DIA_DISPONIVEL");
                 ArrayList<String> dias = new ArrayList<>();
                 if(dia.equalsIgnoreCase(objagendarconsultadto.getDia_dispo_consulta())) {
-                    int input = JOptionPane.showConfirmDialog(null, "Já existe uma consulta para esse horário, deseja ver os horários já ocupados?", "ERRO!",
-				JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
-                    if(input==0) {
-                        String mysqlQuery2 = "SELECT * FROM CONSULTA ORDER BY DIA_DISPONIVEL";
-                        PreparedStatement ns = conectar.prepareStatement(mysqlQuery2);
-                        ResultSet res = ns.executeQuery(mysqlQuery2);
-                        while(res.next()) {
-                            String mysqlQuery3 = "SELECT * FROM CONSULTA ORDER BY DIA_DISPONIVEL";
-                            PreparedStatement ns2 = conectar.prepareStatement(mysqlQuery3);
-                            ResultSet res2 = ns.executeQuery(mysqlQuery3);
-                            
-                            while(res2.next()) {
-                                String diaDisp = res2.getString("DIA_DISPONIVEL");
-                                String horaDisp = res2.getString("HORARIO");
-                                
-                                String indisponivel = String.format("\"%s\" às \"%s\"", diaDisp, horaDisp);
-                                dias.add(indisponivel);
-                            }
-                        
-                        }
-                        String texto = "\n";
-                        for(int i = 0; i < dias.size(); i++){
-                                texto.concat(dias.get(i));
-                        }
-                        JOptionPane.showMessageDialog(null, texto);
-                        System.out.println(texto);
-                        
-                    } else {
-                        return;
-                    }
-                }
+                    JOptionPane.showMessageDialog(null, "Já existe uma consulta para esse horário e dia!");
+                    return;
+                    
+                } 
             }
             String mysqlString = "INSERT INTO CONSULTA(NOME, CPF, TELEFONE, EMAIL, MEMBRO_BTS, NOME_ANIMAL, ANIMAL, RACA, TIPO_SANGUE, DIA_DISPONIVEL, HORARIO) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement prepa = conectar.prepareStatement(mysqlString);
