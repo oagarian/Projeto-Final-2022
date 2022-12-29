@@ -29,11 +29,11 @@ public class AgendarConsultaDAO {
                     if(input==0) {
                         String mysqlQuery2 = "SELECT * FROM CONSULTA ORDER BY DIA_DISPONIVEL";
                         PreparedStatement ns = conectar.prepareStatement(mysqlQuery2);
-                        ResultSet res = ns.executeQuery(mysqlQuery);
+                        ResultSet res = ns.executeQuery(mysqlQuery2);
                         while(res.next()) {
                             String mysqlQuery3 = "SELECT * FROM CONSULTA ORDER BY DIA_DISPONIVEL";
-                            PreparedStatement ns2 = conectar.prepareStatement(mysqlQuery2);
-                            ResultSet res2 = ns.executeQuery(mysqlQuery);
+                            PreparedStatement ns2 = conectar.prepareStatement(mysqlQuery3);
+                            ResultSet res2 = ns.executeQuery(mysqlQuery3);
                             
                             while(res2.next()) {
                                 String diaDisp = res2.getString("DIA_DISPONIVEL");
