@@ -261,7 +261,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel9">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Experi&#xea;ncia proffisional:"/>
+            <Property name="text" type="java.lang.String" value="Experi&#xea;ncia profissional:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="curriculoFormacao">

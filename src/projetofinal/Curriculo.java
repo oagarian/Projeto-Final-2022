@@ -103,7 +103,7 @@ public class Curriculo extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
-        jLabel9.setText("Experiência proffisional:");
+        jLabel9.setText("Experiência profissional:");
 
         curriculoFormacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -276,9 +276,19 @@ public class Curriculo extends javax.swing.JFrame {
         cep_curriculo = curriculoCep.getText();
         experiencia_curriculo = curriculoExperiencia.getText();
         formacao_curriculo = curriculoFormacao.getText();
+        
+        if(nome_curriculo.isEmpty() || cpf_curriculo.isEmpty()|| telefone_curriculo.isEmpty() || email_curriculo.isEmpty() || vaga_curriculo.isEmpty() || cep_curriculo.isEmpty() || experiencia_curriculo.isEmpty() || formacao_curriculo.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Não podem haver campos vázios!");
+            return;
+        } 
         CurriculoDTO objcurriculodto = new CurriculoDTO(nome_curriculo, cpf_curriculo, telefone_curriculo, email_curriculo, vaga_curriculo, cep_curriculo, experiencia_curriculo, formacao_curriculo);
         CurriculoDAO objcurriculodao = new CurriculoDAO();
         objcurriculodao.inserirCurriculo(objcurriculodto);
+        
+        
+        
+        
+        
         
     
         

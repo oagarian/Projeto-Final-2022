@@ -325,7 +325,11 @@ public class AgendarConsulta extends javax.swing.JFrame {
         tipoSanguineo = consultaTipoSanguineo.getSelectedItem().toString();
         diaDisponivel = consultaDiaDisponivel.getSelectedItem().toString();
         horario = consultaHorarioDisponivel.getSelectedItem().toString();
-
+        
+        if(nome.isEmpty() || cpf.isEmpty() || telefone.isEmpty() || email.isEmpty() || membroBts.isEmpty() || nomeAnimal.isEmpty() || bixinhoE.isEmpty() || raca.isEmpty() || tipoSanguineo.isEmpty() || diaDisponivel.isEmpty() || horario.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Não podem haver campos vázios!");
+            return;
+        } 
         AgendarConsultaDTO objagendarconsultadto = new AgendarConsultaDTO(nome, cpf, telefone, email, membroBts, nomeAnimal, bixinhoE, raca, tipoSanguineo, diaDisponivel, horario);
 
         AgendarConsultaDAO objagendarconsultadao = new AgendarConsultaDAO();
